@@ -1,26 +1,32 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Transactions from './Transactions';
+import axios from 'axios';
 
 class App extends Component {
+  state = {
+    transactions: []
+  }
+  componentDidMount() {
+    axios.get(`http://localhost:8080/transactions`)
+      .then(res => {
+        const transactions = res.data;
+        this.setState({ transactions });
+      })
+  }
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <body>
+        <div className="header">
+          <h1>My Expenses App</h1>
+        </div>
+        <div className="main">
+          <div className="list">
+            <Transactions transactions={this.state.transactions}/>
+          </div>
+        </div>
+      </body>
+
     );
   }
 }
