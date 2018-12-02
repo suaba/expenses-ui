@@ -36,9 +36,20 @@ h1 {
 }
 
 .transaction {
-  font-size: 15px;
-  font-family: 'Calibri';
+  font-size: 17px;
+  font-family: 'Arial';
   margin: 20px;
   border-bottom-width: 1px;
   border-bottom-style: solid;
+}
+
+button {
+  background: white;
+  color: #406864;
+  padding: 10px;
+  display: inline-block;
+  border-radius: 10%;
+  border: none;
+  font-size: 17px;
+  font-family: 'Arial';
 }

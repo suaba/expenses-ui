@@ -4,15 +4,25 @@ import Transactions from './Transactions';
 import axios from 'axios';
 
 class App extends Component {
-  state = {
-    transactions: []
+  constructor(props) {
+    super(props);
+    this.state = {
+      transactions: []
+    }
   }
   componentDidMount() {
-    axios.get(`http://localhost:8080/transactions`)
+    axios.get(`http://localhost:8080/api/transactions`)
       .then(res => {
         const transactions = res.data;
         this.setState({ transactions });
       })
+  }
+  deleteTransaction(id) {
+    axios.delete(`http://localhost:8080/api/transactions/${id}`)
+    .then(res => {
+      const transactions = res.data;
+      this.setState({ transactions });
+    })
   }
   render() {
     return (
@@ -22,7 +32,7 @@ class App extends Component {
         </div>
         <div className="main">
           <div className="list">
-            <Transactions transactions={this.state.transactions}/>
+            <Transactions transactions={this.state.transactions} onClick={this.deleteTransaction.bind(this)}/>
           </div>
         </div>
       </body>
