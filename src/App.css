@@ -3,12 +3,13 @@ body {
   display: table;
   width: 100%;
   font-family: 'Arial';
+  background: white;
 }
 
 .header {
   display: table-row;
   height: 10vh;
-  background: #406864;
+  background: #665c84;
   color: white;
   text-align: center;
   font-size: 10px;
@@ -27,8 +28,8 @@ h1 {
 }
 
 .list {
-  background: #8ab7a6;
-  margin: 50px;
+  background: #deaa61;
+  margin: 50px 50px 15px 50px;
   height: inherit;
   border-radius: 20px;
   color: white;
@@ -43,13 +44,44 @@ h1 {
   border-bottom-style: solid;
 }
 
-button {
+.delete {
   background: white;
-  color: #406864;
-  padding: 10px;
+  color: #665c84;
+  padding: 5px;
   display: inline-block;
   border-radius: 10%;
   border: none;
   font-size: 17px;
   font-family: 'Arial';
+}
+
+.create {
+  background: #665c84;
+  color: white;
+  padding: 10px;
+  margin: 0 50px 10px 0;
+  border-radius: 5px;
+  border: none;
+  font-size: 17px;
+  font-family: 'Arial';
+  float: right;
+}
+
+.backdrop {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0,0,0,0.3);
+  padding: 50;
+}
+
+.modal {
+  background: #fff;
+  border-radius: 5px;
+  max-width: 500px;
+  min-height: 300px;
+  margin: 0 auto;
+  padding: 30px;
 }
