@@ -12,15 +12,12 @@ class App extends Component {
       isOpen: false
     }
   }
-  fetchAllTransactions = () => {
-    axios.get(`http://localhost:8080/api/transactions`)
-      .then(res => {
-        const transactions = res.data;
-        this.setState({ transactions });
-      })
-  }
   componentDidMount = () => {
-    this.fetchAllTransactions();
+    axios.get(`http://localhost:8080/api/transactions`)
+    .then(res => {
+      const transactions = res.data;
+      this.setState({ transactions });
+    })
   }
   deleteTransaction = (id) => {
     axios.delete(`http://localhost:8080/api/transactions/${id}`)
@@ -30,8 +27,14 @@ class App extends Component {
     })
   }
   addTransaction = (transaction) => {
-    axios.post(`http://localhost:8080/api/transactions/`, transaction);
-    this.fetchAllTransactions();
+    axios.post(`http://localhost:8080/api/transactions/`, transaction)
+    .then(res => {
+      const transactions = [...this.state.transactions, res.data];
+      this.setState ({ 
+        transactions: transactions,
+        isOpen: !this.state.isOpen
+      })
+    })
   }
   toggleModal = () => {
     this.setState({

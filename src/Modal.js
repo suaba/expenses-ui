@@ -8,8 +8,8 @@ class Modal extends React.Component {
     amount: null,
     currency: 'PLN',
     category: {
-        id: 12,
-        name: 'education'
+      id: 6,
+      name: 'other'
     }
   }
   handleSubmit = (e) => {
@@ -30,8 +30,8 @@ class Modal extends React.Component {
         <div className="modal">
           <div className="form">
             <form onSubmit={this.handleSubmit}>
-              <input type="text" placeholder="name" onChange={this.handleChange}/>
-              <input type="text" placeholder="amount" onChange={this.handleChange}/>
+              <input type="text" id="name" placeholder="name" onChange={this.handleChange}/>
+              <input type="text" id="amount" placeholder="amount" onChange={this.handleChange}/>
               <select>
                 <option value="PLN">PLN</option>
               </select> 
@@ -41,8 +41,8 @@ class Modal extends React.Component {
             </form>
           </div>
           <div className="footer">
-            <button className="forTest" onClick={this.handleSubmit}>
-            Test
+            <button className="submit" onClick={this.handleSubmit}>
+            Submit
             </button>
             <button onClick={this.props.onClose}>
             Close
