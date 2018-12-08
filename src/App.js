@@ -31,6 +31,13 @@ class App extends Component {
       isOpen: !this.state.isOpen
     });
   }
+  addTransaction = (transaction) => {
+    axios.post(`http://localhost:8080/api/transactions/`, transaction);
+    let transactions = [...this.state.transactions, transaction];
+    this.setState ({
+      transactions: transactions
+    })
+  }
   render() {
     return (
       <body>
@@ -45,7 +52,8 @@ class App extends Component {
           Add transaction
           </button>
           <Modal show={this.state.isOpen}
-            onClose={this.toggleModal}>
+            onClose={this.toggleModal}
+            addTransaction={this.addTransaction}>
             Place for form
           </Modal>
         </div>
