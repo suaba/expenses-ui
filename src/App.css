@@ -80,8 +80,26 @@ h1 {
 .modal {
   background: #fff;
   border-radius: 5px;
-  max-width: 500px;
+  max-width: 300px;
   min-height: 300px;
   margin: 0 auto;
   padding: 30px;
+}
+
+input {
+  display: block;
+  /* border: 1px solid rgba(255,255,255,0.6);
+  background: linear-gradient(#eee, #fff);
+  transition: all 0.3s ease-out;
+  padding: 5px; */
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 5px;
+}
+
+select {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 5px;
 }
